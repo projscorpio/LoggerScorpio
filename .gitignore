@@ -1,12 +1,12 @@
 #directionaries with bin and shit
 
-/vs
-/bin
-/bin-int
+.vs/
+bin/
+bin-int/
 
 #visual studio files
 
-*.sln
-*.vcxproj
-*.vcxproj.filters
-*.vcxproj.user
+**.sln
+**.vcxproj
+**.vcxproj.filters
+**.vcxproj.user

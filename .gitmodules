@@ -1,0 +1,3 @@
+[submodule "LoggerScorpio/vendor/spdlog"]
+	path = LoggerScorpio/vendor/spdlog
+	url = https://github.com/gabime/spdlog
