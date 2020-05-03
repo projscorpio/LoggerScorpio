@@ -1,21 +1,27 @@
 #include "Log.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
+#include "spdlog/sinks/rotating_file_sink.h"
 
 
-std::shared_ptr<spdlog::logger> Log::s_Logger;
-std::shared_ptr<spdlog::logger> Log::s_StdErr;
+std::shared_ptr<spdlog::logger> Log::s_ConsoleLogger;
+std::shared_ptr<spdlog::logger> Log::s_FileLogger;
 
 
-void Log::Init()
+void Log::InitConsole()
 {
-	spdlog::set_pattern("%^[%T] [%t] [%n]: %v%$");
-
-	s_Logger = spdlog::stdout_color_mt("Logger");
-	s_StdErr = spdlog::stderr_color_mt("Stderr");
-
+	SetPattern();
+	s_ConsoleLogger = spdlog::stdout_color_mt("ConsoleLogger");
 	// all messages by default
-	s_Logger->set_level(spdlog::level::trace);
-	s_Logger->set_level(spdlog::level::trace);
+	s_ConsoleLogger->set_level(spdlog::level::trace);
+}
+
+
+void Log::InitFile(const std::string& directionary, size_t maxSize, size_t maxFiles)
+{
+	SetPattern();
+	s_FileLogger = spdlog::rotating_logger_mt("FileLogger", directionary, maxSize, maxFiles);
+	// all messages by default
+	s_FileLogger->set_level(spdlog::level::trace);
 }
 
 
@@ -24,13 +30,19 @@ void Log::Init()
 // ========================
 
 
-void Log::LogSetLevel(const std::string& level)
+void Log::SetConsoleLevel(const std::string& level)
 {
-	s_Logger->set_level(spdlog::level::from_str(level));
+	s_ConsoleLogger->set_level(spdlog::level::from_str(level));
+}
+
+void Log::SetFileLevel(const std::string& level)
+{
+	s_FileLogger->set_level(spdlog::level::from_str(level));
+}
+
+void Log::SetPattern()
+{
+	spdlog::set_pattern(DEF_FORMAT);
 }
 
 
-void Log::StdErrSetLevel(const std::string& level)
-{
-	s_Logger->set_level(spdlog::level::from_str(level));
-}

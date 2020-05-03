@@ -17,7 +17,7 @@ project "LoggerScorpio"
 	location "%{prj.name}"
 	kind "ConsoleApp"
 	language "C++"
-	cppdialect "C++14"
+	cppdialect "C++11"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -25,7 +25,7 @@ project "LoggerScorpio"
 	files 
 	{ 
 		"%{prj.name}/src/**.h", 
-		"%{prj.name}/src/**.c" 
+		"%{prj.name}/src/**.cpp" 
 	}
 
 	includedirs
@@ -41,7 +41,7 @@ project "LoggerScorpio"
 		defines { "DEBUG" }
 		symbols "On"
 
-    filter "configurations:Release"
+	filter "configurations:Release"
 		defines { "RELEASE" }
 		optimize "On"
 
