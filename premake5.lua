@@ -28,6 +28,11 @@ project "LoggerScorpio"
 		"%{prj.name}/src/**.c" 
 	}
 
+	includedirs
+	{
+		"%{prj.name}/vendor/spdlog/include"
+	}
+
 	
 	filter "system:windows"
 		systemversion "latest"
@@ -41,6 +46,6 @@ project "LoggerScorpio"
 		optimize "On"
 
 	filter "configurations:ReleaseNoLog"
-		defines { "RELEASE", "NOLOG"}
+		defines { "RELEASE", "NO_LOG"}
 		optimize "On"
 	
