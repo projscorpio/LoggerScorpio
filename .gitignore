@@ -4,6 +4,10 @@
 bin/
 bin-int/
 
+#CMake
+
+build/
+
 #visual studio files
 
 **.sln
