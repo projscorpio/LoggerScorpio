@@ -1,7 +1,5 @@
-#pragma once // je¿eli kompilator tego nie obs³uguje, to mo¿na spokojnie wywaliæ
-
-#ifndef H_LOGGER
-#define H_LOGGER
+#ifndef LOG_HPP_
+#define LOG_HPP_
 
 #include <spdlog/spdlog.h>
 // DEFINES
@@ -10,9 +8,12 @@
 #define DEF_MAX_SIZE 1048576 * 5 // 5MB
 #define DEF_MAX_FILES 10
 
-class Log
-{
+class Log final {
 public:
+	// for now it's a singleton
+	Log() = delete;
+	Log(const Log& other) = delete;
+
 	// must be called at the beggining of the programm
 	static void InitConsole();
 	static void InitFile(const std::string& directionary = DEF_PATH, size_t maxSize = DEF_MAX_SIZE, size_t maxFiles = DEF_MAX_FILES);
@@ -21,13 +22,15 @@ public:
 	static inline std::shared_ptr<spdlog::logger>& GetConsoleLogger() { return s_ConsoleLogger; }
 	static inline std::shared_ptr<spdlog::logger>& GetFileLogger() { return s_FileLogger; }
 
-
 	// changing log levels for standard logget
 	static void SetConsoleLevel(const std::string& level);
 	static void SetFileLevel(const std::string& level);
 
+	// Sets pattern to both file and console output
+	static void SetPatternConsole(const std::string& pattern = DEF_FORMAT);
+	static void SetPatternFile(const std::string& pattern = DEF_FORMAT);
+
 private:
-	static void SetPattern();
 
 	static std::shared_ptr<spdlog::logger> s_ConsoleLogger;
 	static std::shared_ptr<spdlog::logger> s_FileLogger;
@@ -66,4 +69,4 @@ private:
 #endif // NO_LOG
 
 
-#endif // H_LOGGER
+#endif // LOG_HPP_

@@ -7,7 +7,7 @@ set(source_dir ${PROJECT_NAME}/src)
 set(vendor_dir ${PROJECT_NAME}/vendor)
 
 file(GLOB source_files "${source_dir}/*.cpp")
-file(GLOB header_files "${source_dir}/*.h")
+file(GLOB header_files "${source_dir}/*.hpp")
 
 include_directories(${vendor_dir}/spdlog/include)
 
