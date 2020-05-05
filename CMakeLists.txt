@@ -16,20 +16,31 @@ set (
     SOURCES
     ${source_dir}/Log.cpp
 )
+    
 
 add_library (
     ${PROJECT_NAME} SHARED
     ${SOURCES} 
 )
-
-# i tak jest tam wszystko, wiec osobny header tylko by imo zasmiecal
-# chcociaz jak teraz mysle, to jednak chyba potem go dodam
-set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER ${source_dir}/Log.hpp) 
-
+    
+set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER ${PROJECT_NAME}/include/ScorpioLog.hpp) 
+    
 target_include_directories(${PROJECT_NAME} PRIVATE ${source_dir} ${vendor_dir}/spdlog/include)
 
 install (
     TARGETS ${PROJECT_NAME}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/scorpio
+)
+
+install (
+    DIRECTORY "${source_dir}"
+    DESTINATION "include/scorpio"
+    FILES_MATCHING
+    PATTERN "*.hpp"
+)
+
+install (
+    DIRECTORY "${vendor_dir}/spdlog"
+    DESTINATION "include/scorpio"
 )

@@ -1,7 +1,7 @@
 #ifndef LOG_HPP_
 #define LOG_HPP_
 
-#include <spdlog/spdlog.h>
+#include "spdlog/spdlog.h"
 // DEFINES
 #define DEF_FORMAT "%^[%T] [%t] %l: %v%$"
 #define DEF_PATH "logs/logfile"
