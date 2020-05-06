@@ -1,6 +1,6 @@
 #include "Log.hpp"
-#include "spdlog/sinks/stdout_color_sinks.h"
-#include "spdlog/sinks/rotating_file_sink.h"
+#include <spdlog/sinks/stdout_color_sinks.h>
+#include <spdlog/sinks/rotating_file_sink.h>
 
 
 std::shared_ptr<spdlog::logger> Log::s_ConsoleLogger;

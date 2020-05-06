@@ -32,15 +32,9 @@ install (
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/scorpio
 )
-
 install (
     DIRECTORY "${source_dir}"
     DESTINATION "include/scorpio"
     FILES_MATCHING
     PATTERN "*.hpp"
-)
-
-install (
-    DIRECTORY "${vendor_dir}/spdlog"
-    DESTINATION "include/scorpio"
 )
