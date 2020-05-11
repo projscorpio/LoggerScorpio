@@ -15,9 +15,9 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 project "LoggerScorpio"
 
 	location "%{prj.name}"
-	kind "ConsoleApp"
+	kind "SharedLib"
 	language "C++"
-	cppdialect "C++11"
+	cppdialect "C++17"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
