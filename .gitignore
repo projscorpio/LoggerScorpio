@@ -9,6 +9,10 @@ logs/
 
 build/
 
+#dependencies
+
+dep/
+
 #visual studio files
 
 **.sln

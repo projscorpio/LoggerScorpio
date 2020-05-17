@@ -1,3 +1,4 @@
 #!/bin/bash
 
-mkdir build && cd build/ && cmake .. && make
+[ ! -d "./build/" ] && mkdir build
+cd build/ && cmake .. && make

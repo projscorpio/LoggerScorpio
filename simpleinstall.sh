@@ -1,3 +1,4 @@
 #!/bin/bash
 
-mkdir build && cd build/ && cmake .. && sudo make install
+[ ! -d "./build/" ] && mkdir build
+cd build/ && cmake .. && sudo make install
