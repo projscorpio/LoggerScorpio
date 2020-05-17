@@ -1,4 +1,3 @@
-#!/bin/sh
+#!/bin/bash
 
-sudo apt-get install libspdlog-dev
 mkdir build && cd build/ && cmake .. && sudo make install
