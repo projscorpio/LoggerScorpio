@@ -14,6 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: installdep
-      run: ./installdep.sh
+      run: .script/installdep.sh
     - name: build
-      run: ./build.sh
+      run: .script/build.sh
