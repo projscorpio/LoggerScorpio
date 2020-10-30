@@ -1,40 +1,37 @@
 cmake_minimum_required(VERSION 3.10)
-
 project(LoggerScorpio LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
-
-include(GNUInstallDirs)
-
 add_compile_options(-Wall)
 add_compile_options(-pedantic)
 
-set(source_dir ${PROJECT_NAME}/src)
-set(vendor_dir ${PROJECT_NAME}/vendor)
+find_package(spdlog REQUIRED)
 
 set (
     SOURCES
-    ${source_dir}/Log.cpp
+    src/SPDLogWrapper.cpp
 )
-    
 
 add_library (
-    ${PROJECT_NAME} SHARED
+    scorpio_log
+    SHARED
     ${SOURCES} 
 )
-    
-set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER ${PROJECT_NAME}/include/ScorpioLog.hpp) 
-    
-target_include_directories(${PROJECT_NAME} PRIVATE ${source_dir} ${vendor_dir}/spdlog/include)
+
+set_target_properties(scorpio_log PROPERTIES PUBLIC_HEADER include/ScorpioLog.hpp) 
+target_link_libraries(scorpio_log PRIVATE spdlog::spdlog_header_only)
+
+include (GNUInstallDirs)
 
 install (
-    TARGETS ${PROJECT_NAME}
+    TARGETS scorpio_log
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/scorpio
+    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/scorpio_log
 )
+
 install (
-    DIRECTORY "${source_dir}"
-    DESTINATION "include/scorpio"
+    DIRECTORY "${CMAKE_SOURCE_DIR}/src"
+    DESTINATION "include/scorpio_log"
     FILES_MATCHING
     PATTERN "*.hpp"
 )
