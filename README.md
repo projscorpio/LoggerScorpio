@@ -9,7 +9,12 @@ Prosty singleton wokół spdlog. Sugeruję korzystać z makrosów, łatwo wtedy 
 ./scripts/build.sh
 ./scripts/install.sh
 ```
-Oczywiście nie zapomnij o `sudo`.
+
+## Linkowanie 
+W docelowym projekcie w pliku CMake należy dodać tę linijkę po zdefiniowaniu targetu
+```
+target_link_libraries(scorpio_log)
+```
 
 ## Włączanie i wyłączanie logowania
 
