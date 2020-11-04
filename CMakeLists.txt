@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 project(LoggerScorpio LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 17)
 add_compile_options(-Wall)
 add_compile_options(-pedantic)
 
@@ -18,7 +17,13 @@ add_library (
     ${SOURCES} 
 )
 
-set_target_properties(scorpio_log PROPERTIES PUBLIC_HEADER include/ScorpioLog.hpp) 
+set_target_properties(
+    scorpio_log
+    PROPERTIES
+    PUBLIC_HEADER include/ScorpioLog.hpp 
+    CXX_STANDARD 17
+    ) 
+
 target_link_libraries(scorpio_log PRIVATE spdlog::spdlog_header_only)
 
 include (GNUInstallDirs)

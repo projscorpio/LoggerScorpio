@@ -1,7 +1,6 @@
-.vs/
-bin/
-bin-int/
-logs/
+# vscode
+
+.vscode/
 
 #CMake
 
@@ -13,6 +12,9 @@ dep/
 
 #visual studio files
 
+.vs/
+bin/
+bin-int/
 **.sln
 **.vcxproj
 **.vcxproj.filters
