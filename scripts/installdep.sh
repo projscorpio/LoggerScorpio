@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo apt update
+sudo apt install build-essential
 [ ! -d "./dep/" ] && mkdir dep
 cd dep
 git clone https://github.com/gabime/spdlog.git
