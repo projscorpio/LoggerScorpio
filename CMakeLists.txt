@@ -3,7 +3,6 @@ project(LoggerScorpio LANGUAGES CXX)
 
 add_compile_options(-Wall)
 add_compile_options(-pedantic)
-add_definitions("-std=c++17")
 
 set(CMAKE_CXX_FLAGS "")
 set(CMAKE_CXX_STANDARD 17)

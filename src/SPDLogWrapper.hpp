@@ -26,8 +26,10 @@ public:
 	{
 		if (consoleLogger_)
 			consoleLogger_->trace(string, params...);
-		if (fileLogger_)
+		if (fileLogger_) {
 			fileLogger_->trace(string, params...);
+			fileLogger_->flush();
+		}
 	}
 
 	template <typename String, typename... Params>
@@ -35,8 +37,10 @@ public:
 	{
 		if (consoleLogger_)
 			consoleLogger_->info(string,params...);
-		if (fileLogger_)
+		if (fileLogger_) {
 			fileLogger_->info(string, params...);
+			fileLogger_->flush();
+		}
 	}
 
 	template <typename String, typename... Params>
@@ -44,8 +48,10 @@ public:
 	{
 		if (consoleLogger_)
 			consoleLogger_->warn(string, params...);
-		if (fileLogger_)
+		if (fileLogger_) {
 			fileLogger_->warn(string, params...);
+			fileLogger_->flush();
+		}
 	}
 
 	template <typename String, typename... Params>
@@ -53,8 +59,10 @@ public:
 	{
 		if (consoleLogger_)
 			consoleLogger_->error(string, params...);
-		if (fileLogger_)
+		if (fileLogger_) {
 			fileLogger_->error(string, params...);
+			fileLogger_->flush();
+		}
 	}
 
 	template <typename String, typename... Params>
@@ -70,8 +78,10 @@ public:
 	{
 		if (consoleLogger_)
 			consoleLogger_->critical(string, params...);
-		if (fileLogger_)
+		if (fileLogger_) {
 			fileLogger_->critical(string, params...);
+			fileLogger_->flush();
+		}
 	}
 
 	static void setLevelConsole(const std::string& level);
