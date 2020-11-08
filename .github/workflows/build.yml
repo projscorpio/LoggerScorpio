@@ -13,10 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - run: |
-        sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-        sudo apt update
-        sudo apt install gcc-9 
+    - name: setup_env
+      run: ./scripts/ci_env_setup.sh
     - name: installdep
       run: ./scripts/installdep.sh
     - name: build
