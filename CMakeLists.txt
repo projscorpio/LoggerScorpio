@@ -3,11 +3,11 @@ project(LoggerScorpio LANGUAGES CXX)
 
 add_compile_options(-Wall)
 add_compile_options(-pedantic)
+add_definitions("-std=c++17")
 
 set(CMAKE_CXX_FLAGS "")
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_VERBOSE_MAKEFILE ON)
 
 find_package(spdlog REQUIRED)
 
