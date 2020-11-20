@@ -4,7 +4,6 @@ project(LoggerScorpio LANGUAGES CXX)
 add_compile_options(-Wall)
 add_compile_options(-pedantic)
 
-set(CMAKE_CXX_FLAGS "")
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 

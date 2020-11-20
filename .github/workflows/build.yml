@@ -18,4 +18,4 @@ jobs:
     - name: installdep
       run: ./scripts/installdep.sh
     - name: build
-      run: ./scripts/build.sh
+      run: ./scripts/buildall.sh

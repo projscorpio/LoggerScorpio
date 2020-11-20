@@ -6,8 +6,7 @@ A simple wrapper around `spdlog` library. Supports logging to console in differe
 
 ```
 ./scripts/installdep.sh
-./scripts/build.sh
-./scripts/install.sh
+./scripts/buildall.sh
 ```
 
 ## Linking 
