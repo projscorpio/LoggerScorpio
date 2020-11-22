@@ -13,9 +13,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: setup_env
-      run: ./scripts/ci_env_setup.sh 
     - name: installdep
+      run: ./scripts/ci_env_setup.sh 
       run: ./scripts/installdep.sh
     - name: build
+      run: ./scripts/ci_env_setup.sh 
       run: ./scripts/buildall.sh
