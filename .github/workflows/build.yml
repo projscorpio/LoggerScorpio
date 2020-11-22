@@ -14,8 +14,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: installdep
-      run: ./scripts/ci_env_setup.sh 
       run: ./scripts/installdep.sh
+      env:
+        CC: /usr/bin/gcc-9 
+        CXX: /usr/bin/g++-9
     - name: build
-      run: ./scripts/ci_env_setup.sh 
       run: ./scripts/buildall.sh
+      env:
+        CC: /usr/bin/gcc-9 
+        CXX: /usr/bin/g++-9
